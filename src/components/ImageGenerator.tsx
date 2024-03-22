@@ -37,10 +37,10 @@ const ImageGenerator = () => {
         query();
         setError("");
       } else {
-        setError("Input length should be less than 150 characters.");
+        setError("La longitud de entrada debe ser menor a 150 caracteres.");
       }
     } else {
-      setError("Please enter a prompt for generating the image");
+      setError("Por favor ingresa un texto para generar la imagen.");
     }
   };
 
