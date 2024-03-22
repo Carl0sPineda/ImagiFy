@@ -22,7 +22,7 @@ const ImageGenerator = () => {
       const objectURL = URL.createObjectURL(blob);
       setImageSrc(objectURL);
       setError("");
-      setInputValue(""); // Limpiar el valor del input
+      setInputValue("");
     } catch (error) {
       console.error("Error:", error);
       setError("Failed to generate image. Please try again.");
@@ -44,10 +44,9 @@ const ImageGenerator = () => {
     }
   };
 
-  // Función para manejar cambios en el input
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value); // Actualizar el valor del input
-    setError(""); // Limpiar el error cuando el usuario comienza a corregir la entrada
+    setInputValue(e.target.value);
+    setError("");
   };
 
   return (
@@ -58,25 +57,25 @@ const ImageGenerator = () => {
             ImagiFy
           </h1>
           <p className="mb-8 leading-relaxed font-roboto_slab">
-            La aplicación de generación de imágenes con texto mediante
-            inteligencia artificial (IA) es una herramienta innovadora diseñada
-            para crear encabezados visuales impactantes para páginas web.
-            Utilizando algoritmos avanzados de IA.
+            Te permite generar imágenes a partir de descripciones textuales
+            utilizando la magia de la inteligencia artificial. Simplemente
+            escribe lo que deseas ver y nuestro sistema te sorprenderá con una
+            imagen que cobra vida.
           </p>
           <div className="flex w-full md:justify-start justify-center items-end relative">
             <div className="relative mr-4 md:w-full lg:w-full xl:w-1/2 w-2/4">
               <label
                 htmlFor="hero-field"
-                className="leading-7 text-sm text-gray-400"
+                className="leading-7 font-roboto_slab text-sm text-gray-400"
               >
-                Placeholder
+                Ingrese su texto aquí:
               </label>
               <input
                 type="text"
                 id="hero-field"
                 autoComplete="off"
                 name="hero-field"
-                placeholder="enter"
+                placeholder="Ejm: cachorro jugando en la playa"
                 value={inputValue}
                 onChange={handleChange}
                 className={`font-roboto_slab w-full bg-gray-800 rounded bg-opacity-40 border border-gray-700 focus:ring-2 focus:ring-indigo-900 focus:bg-transparent focus:border-indigo-700 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out ${inputClassName}`}
@@ -92,7 +91,7 @@ const ImageGenerator = () => {
                 isLoading ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >
-              {isLoading ? "Generating..." : "Generate"}
+              {isLoading ? "Generando..." : "Generar"}
             </button>
           </div>
         </div>
@@ -105,9 +104,9 @@ const ImageGenerator = () => {
                 src={imageSrc}
               />
             ) : (
-              <p className="text-gray-100 font-roboto_slab">
-                Enter a prompt in the input
-              </p>
+              <span className="text-gray-100 font-roboto_slab">
+                Ingrese un mensaje en la entrada
+              </span>
             )}
           </div>
         </div>
